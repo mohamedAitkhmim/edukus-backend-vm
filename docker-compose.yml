@@ -1,0 +1,16 @@
+version: "3.7"
+services:
+  edukus_back:
+    container_name: edukus_back
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: edukus/edukus_back:2.0
+    network_mode: bridge
+    ports:
+      - "8081:8081"
+    volumes:
+      - edukus_back_data:/home/storage/edukus  
+volumes:
+  edukus_back_data:
+    driver: local          
