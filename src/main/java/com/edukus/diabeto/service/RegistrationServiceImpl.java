@@ -82,7 +82,7 @@ public class RegistrationServiceImpl {
     registration.setRegistrationChallengeDate(registrationChallengeDate);
 
     try{
-      emailSender.sendEmail(email, emailSubject, emailContent+ " " + registrationChallenge);
+      //emailSender.sendEmail(email, emailSubject, emailContent+ " " + registrationChallenge);
     }
     catch (Exception e){
       LOGGER.warning("email not valid");
