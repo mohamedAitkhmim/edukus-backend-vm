@@ -14,7 +14,9 @@ public interface AppointmentMapper {
       return null;
     }
     AppointmentEntity appointmentEntity = new AppointmentEntity(null, dto.getService(), dto.getLocation(), dto.getDateTime(), dto.getNote(), email, null);
-    List<NotificationEntity> notificationEntities = dto.getNotifications().stream().map(notification -> new NotificationEntity(null, notification, appointmentEntity)).collect(Collectors.toList());
+    //List<NotificationEntity> notificationEntities2 = dto.getNotifications().stream().map(notification -> new NotificationEntity(null, notification, appointmentEntity)).collect(Collectors.toList());
+    List<NotificationEntity> notificationEntities =
+            CollectionUtils.emptyIfNull(dto.getNotifications()).stream().map(notification -> new NotificationEntity(null, notification, appointmentEntity)).collect(Collectors.toList());
     appointmentEntity.setNotifications(notificationEntities);
     return appointmentEntity;
   }
